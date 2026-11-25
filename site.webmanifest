@@ -1,0 +1,23 @@
+{
+  "name": "Atelier Hortus Blanc",
+  "short_name": "Hortus Blanc",
+  "description": "Fleuriste créateur à Tours : fleurs séchées, stabilisées, plantes et ateliers floraux.",
+  "lang": "fr",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FBFAF8",
+  "theme_color": "#17302A",
+  "icons": [
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

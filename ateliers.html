@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Aperçu : la page ne doit pas apparaître dans Google. Retirer cette ligne au lancement officiel. -->
+<meta name="robots" content="noindex">
+<title>Ateliers floraux · Atelier Hortus Blanc</title>
+<meta name="description" content="Réservez un atelier floral à Tours : couronnes de Noël, terrariums, bouquets séchés. Ateliers privés, EVJF et team building sur demande.">
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-italique.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#17302A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Atelier Hortus Blanc">
+<meta property="og:title" content="Ateliers floraux · Atelier Hortus Blanc">
+<meta property="og:description" content="Réservez un atelier floral à Tours : couronnes de Noël, terrariums, bouquets séchés. Ateliers privés, EVJF et team building sur demande.">
+<!-- Aperçu de partage : remplacer par l'adresse complète une fois le site en ligne (ex. https://.../images/partage.jpg) -->
+<meta property="og:image" content="images/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/donnees.js" as="script">
+<link rel="preload" href="assets/app.js" as="script">
+</head>
+<body data-page="ateliers">
+
+<main>
+  <section class="page-hero">
+    <svg class="acanthe-bg" aria-hidden="true"><use href="#acanthe"/></svg>
+    <div class="wrap">
+      <div>
+        <p class="crumbs"><a href="index.html">Accueil</a><span>/</span><span>Ateliers floraux</span></p>
+        <p class="eyebrow">Ateliers floraux</p>
+        <h1>Deux heures <em>les mains</em> dans les fleurs.</h1>
+      </div>
+      <div>
+        <p class="lead">En petit groupe de 8, Charly vous apprend les gestes du fleuriste. Végétaux, matériel et boisson chaude fournis : vous repartez avec votre création.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#calendrier">Choisir une date <svg class="go"><use href="#arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#prives">Atelier privé ou team building</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendrier -->
+  <section class="section tight bg-sand" id="calendrier">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Calendrier</p>
+          <h2 class="reveal d1">Les prochains <em>ateliers.</em></h2>
+        </div>
+        <p class="reveal d2"><span data-prix-atelier>45 €</span> la place, 2 heures, à l'atelier du quartier Velpeau. Réservez en ligne, payez sur place le jour J.</p>
+      </div>
+      <div class="filters" id="ws-filters" role="group" aria-label="Filtrer par mois" style="margin-bottom:24px"></div>
+      <div class="session-list" id="sessions"></div>
+      <p class="note" style="margin-top:24px">Dates indicatives pour la démonstration : le vrai calendrier est annoncé sur Instagram. Annulation gratuite jusqu'à 48 h avant, depuis votre espace client.</p>
+    </div>
+  </section>
+
+  <!-- Ateliers privés et team building (idée 6) -->
+  <section class="section bg-ink" id="prives">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Sur mesure</p>
+          <h2 class="reveal d1">Un atelier <em>rien que pour vous.</em></h2>
+        </div>
+        <p class="reveal d2">Enterrement de vie de jeune fille, anniversaire, séminaire ou fête d'équipe : l'atelier se privatise, ou se déplace chez vous.</p>
+      </div>
+      <div class="formats">
+        <article class="format reveal">
+          <svg><use href="#i-cake"/></svg>
+          <h3>EVJF &amp; anniversaires</h3>
+          <p>Une parenthèse créative entre proches, à l'atelier. Thème, couleurs et création au choix : couronne de tête, bouquet, cloche…</p>
+          <div class="facts-mini"><span>6 à 10 personnes</span><span>2 h</span><span>À l'atelier</span></div>
+        </article>
+        <article class="format reveal d1">
+          <svg><use href="#i-team"/></svg>
+          <h3>Team building &amp; CSE</h3>
+          <p>Un moment qui rassemble les équipes autour d'un geste simple. Idéal pour les fêtes de fin d'année et les séminaires.</p>
+          <div class="facts-mini"><span>8 à 25 personnes</span><span>1 h 30 à 3 h</span><span>Dans vos locaux</span></div>
+        </article>
+        <article class="format reveal d2">
+          <svg><use href="#i-calendar"/></svg>
+          <h3>Événements &amp; lieux</h3>
+          <p>Un atelier animé pendant votre mariage, votre salon, votre marché de Noël ou l'ouverture de votre boutique.</p>
+          <div class="facts-mini"><span>Sur devis</span><span>Tours et alentours</span></div>
+        </article>
+      </div>
+
+      <div class="split" style="margin-top:70px;align-items:start">
+        <div>
+          <h3 class="reveal" style="font-size:clamp(2rem,3.4vw,2.8rem)">Demander un devis</h3>
+          <ul class="check-list reveal d1">
+            <li><svg><use href="#check"/></svg><span><b>Tout est fourni :</b> végétaux, contenants, outils et tabliers.</span></li>
+            <li><svg><use href="#check"/></svg><span><b>Chaque participant repart</b> avec sa création, emballée.</span></li>
+            <li><svg><use href="#check"/></svg><span><b>Facture entreprise</b> possible pour les CSE et les équipes.</span></li>
+            <li><svg><use href="#check"/></svg><span><b>Réponse sous 48 h</b> avec une proposition de thème et de prix.</span></li>
+          </ul>
+        </div>
+        <form class="form-card reveal d1" id="quote-form" novalidate>
+          <div id="quote-body">
+            <div class="field">
+              <span class="label">Type d'atelier</span>
+              <div class="chips">
+                <label><input type="radio" name="qtype" value="EVJF" checked><span>EVJF</span></label>
+                <label><input type="radio" name="qtype" value="Anniversaire"><span>Anniversaire</span></label>
+                <label><input type="radio" name="qtype" value="Team building / CSE"><span>Team building / CSE</span></label>
+                <label><input type="radio" name="qtype" value="Événement"><span>Événement</span></label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="q-name">Nom</label><input id="q-name" autocomplete="name"></div>
+              <div class="field"><label for="q-email">E-mail</label><input id="q-email" type="email" autocomplete="email"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="q-people">Nombre de personnes</label><input id="q-people" type="number" min="4" max="60" inputmode="numeric" placeholder="Ex. 8"></div>
+              <div class="field"><label for="q-date">Date envisagée</label><input id="q-date" type="date"></div>
+            </div>
+            <div class="field">
+              <label for="q-place">Lieu</label>
+              <select id="q-place"><option>À l'atelier (Tours, Velpeau)</option><option>Dans nos locaux / chez nous</option><option>À définir ensemble</option></select>
+            </div>
+            <div class="field"><label for="q-msg">Votre idée (facultatif)</label><textarea id="q-msg" placeholder="Thème, couleurs, budget par personne…"></textarea></div>
+            <div class="form-foot">
+              <small data-direct="Le bouton envoie votre demande directement à l'atelier.">Le bouton prépare un e-mail adressé à l'atelier.</small>
+              <button type="submit" class="btn btn-primary">Demander mon devis <svg class="go"><use href="#arrow"/></svg></button>
+            </div>
+          </div>
+          <div class="thanks" id="quote-thanks" hidden>
+            <span data-logo data-alt=""></span>
+            <h3>Demande <em>prête.</em></h3>
+            <p data-direct="Votre demande est bien envoyée à l'atelier. Elle est aussi notée dans votre espace client si vous êtes connecté.">Votre messagerie s'ouvre avec la demande pré-remplie. Elle est aussi notée dans votre espace client si vous êtes connecté.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Réservation -->
+<dialog class="modal" id="book" aria-labelledby="book-title">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <span data-logo data-alt=""></span>
+      <div><p class="kicker">Réserver un atelier</p><h2 id="book-title"></h2></div>
+      <button class="x-btn" data-close aria-label="Fermer"><svg><use href="#close"/></svg></button>
+    </div>
+    <form id="book-form" novalidate>
+      <div class="recap" id="book-recap"></div>
+      <div class="field">
+        <label for="bk-seats">Nombre de places</label>
+        <select id="bk-seats"></select>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="bk-name">Nom</label><input id="bk-name" autocomplete="name"></div>
+        <div class="field"><label for="bk-email">E-mail</label><input id="bk-email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label for="bk-tel">Téléphone</label><input id="bk-tel" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="bk-code">Code avantage (facultatif)</label><input id="bk-code" autocomplete="off" placeholder="Ex. code de parrainage"><small class="err ok-msg" id="bk-code-err"></small></div>
+      <div class="total-row" style="margin:6px 0 18px"><span>À régler sur place</span><b id="bk-total"></b></div>
+      <button type="submit" class="btn btn-primary acc-submit">Confirmer ma réservation <svg class="go"><use href="#arrow"/></svg></button>
+      <p class="note" style="margin-top:12px">Pas de compte ? La réservation est enregistrée quand même. <button type="button" class="link-btn" data-open="signup">Créez votre compte</button> pour la retrouver et l'annuler en ligne.</p>
+    </form>
+    <div class="thanks" id="book-thanks" hidden>
+      <span data-logo data-alt=""></span>
+      <h3>À très vite <em>à l'atelier.</em></h3>
+      <p id="book-msg"></p>
+      <a class="btn btn-primary" id="book-mail" href="#">Prévenir l'atelier par e-mail <svg class="go"><use href="#arrow"/></svg></a>
+      <p class="sent-note" id="book-sent" hidden><svg aria-hidden="true"><use href="#check"/></svg> Réservation envoyée à l'atelier</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- Liste d'attente -->
+<dialog class="modal" id="wait" aria-labelledby="wait-title">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <span data-logo data-alt=""></span>
+      <div><p class="kicker">Liste d'attente</p><h2 id="wait-title"></h2></div>
+      <button class="x-btn" data-close aria-label="Fermer"><svg><use href="#close"/></svg></button>
+    </div>
+    <form id="wait-form" novalidate>
+      <div class="recap" id="wait-recap"></div>
+      <div class="field-row">
+        <div class="field"><label for="wt-name">Nom</label><input id="wt-name" autocomplete="name"></div>
+        <div class="field"><label for="wt-email">E-mail</label><input id="wt-email" type="email" autocomplete="email"></div>
+      </div>
+      <button type="submit" class="btn btn-primary acc-submit">M'inscrire sur la liste <svg class="go"><use href="#arrow"/></svg></button>
+      <p class="note" style="margin-top:12px">Si quelqu'un annule, une carte « Une place s'est libérée » vous attend à votre prochaine visite sur le site. Premier qui réserve, premier servi.</p>
+    </form>
+  </div>
+</dialog>
+
+<script src="assets/donnees.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const { $, db, esc, euro, uid, setErr, validEmail, validTel, mailto, envoyer, prefill, saveRequest, fillLogos, observe, checkCode, useCode, toast, waitlist, joinWaitlist, freeSeat, renderNotices } = HB;
+  fillLogos(document);
+
+  // Dates, places et prix : assets/donnees.js
+  const SESSIONS = HB.ATELIERS.dates;
+  const CAPACITY = HB.ATELIERS.places, PRICE = HB.ATELIERS.prix;
+  const end = iso => { const d = new Date(iso); d.setHours(d.getHours() + 2); return d; };
+  const hour = d => d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }).replace(':', ' h ');
+  const when = s => `${new Date(s.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}, ${hour(new Date(s.date))} – ${hour(end(s.date))}`;
+  const booked = s => db.get('hb_bookings', []).filter(b => b.sessionId === s.id).reduce((n, b) => n + b.seats, 0);
+  // Places rendues par un désistement (démonstration)
+  const freed = s => db.get('hb_freed', {})[s.id] || 0;
+  const left = s => Math.max(0, CAPACITY - s.taken - booked(s) + freed(s));
+  const waiting = s => waitlist().find(w => w.sessionId === s.id);
+
+  // Seules les dates à venir sont proposées
+  const upcoming = () => SESSIONS.filter(s => new Date(s.date) > new Date());
+  const months = [...new Set(upcoming().map(s => s.date.slice(0, 7)))];
+  let month = 'all';
+  $('ws-filters').innerHTML = [['all', 'Toutes les dates'], ...months.map(m => [m, new Date(m + '-01T12:00').toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })])]
+    .map(([k, l]) => `<button type="button" data-m="${k}" aria-pressed="${k === month}">${l.charAt(0).toUpperCase() + l.slice(1)}</button>`).join('');
+  $('ws-filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-m]');
+    if (!b) return;
+    month = b.dataset.m;
+    $('ws-filters').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  });
+
+  function render() {
+    const list = upcoming().filter(s => month === 'all' || s.date.startsWith(month));
+    if (!list.length) { $('sessions').innerHTML = `<div class="empty-state"><b>Nouvelles dates bientôt</b>Le prochain calendrier est annoncé sur Instagram. Les ateliers privés restent possibles toute l'année.</div>`; return; }
+    $('sessions').innerHTML = list.map(s => {
+      const d = new Date(s.date), n = left(s), full = !n, w = waiting(s);
+      const pct = Math.round((CAPACITY - n) / CAPACITY * 100);
+      return `<article class="session reveal">
+        <div class="date"><span>${d.toLocaleDateString('fr-FR', { weekday: 'short' })}</span><b>${d.getDate()}</b><span>${d.toLocaleDateString('fr-FR', { month: 'short' })}</span></div>
+        <div><h3>${esc(s.title)}</h3><div class="meta"><span>${esc(s.theme)}</span><span>${hour(d)} – ${hour(end(s.date))}</span></div></div>
+        <div class="seats${full ? ' full' : ''}"><small>${full ? 'Complet' : `${n} place${n > 1 ? 's' : ''} restante${n > 1 ? 's' : ''}`}</small><div class="seats-bar"><i style="width:${pct}%"></i></div>
+          ${w ? `<small class="waiting">${full ? 'Vous êtes sur la liste d\'attente' : 'Place libérée : elle est pour vous'}</small>` : ''}
+          ${full ? `<button type="button" class="link-btn" data-free="${s.id}" style="font-size:.74rem;justify-self:start">Démo : simuler un désistement</button>` : ''}</div>
+        <div class="price-col"><b>${euro(PRICE)}</b>${full
+          ? (w ? `<span class="btn btn-ghost btn-small" aria-disabled="true">Inscrit·e ✓</span>`
+               : `<button type="button" class="btn btn-ghost btn-small" data-wait="${s.id}">Liste d'attente</button>`)
+          : `<button type="button" class="btn btn-primary btn-small" data-book="${s.id}">Réserver</button>`}</div>
+      </article>`;
+    }).join('');
+    observe($('sessions'));
+  }
+  render();
+  document.addEventListener('hb:data', render);
+
+  // Liste d'attente : inscription et désistement simulé
+  const wdlg = $('wait');
+  let waitSession = null;
+  prefill({ name: 'wt-name', email: 'wt-email' });
+  document.addEventListener('click', e => {
+    const w = e.target.closest('[data-wait]'), f = e.target.closest('[data-free]');
+    if (w) {
+      waitSession = SESSIONS.find(s => s.id === w.dataset.wait);
+      $('wait-title').textContent = waitSession.title;
+      $('wait-recap').innerHTML = `<b>${esc(waitSession.title)}</b><span>${when(waitSession)}</span><span>Atelier complet · ${CAPACITY} participants</span>`;
+      wdlg.showModal();
+    }
+    if (f) {
+      const s = SESSIONS.find(x => x.id === f.dataset.free), map = db.get('hb_freed', {});
+      map[s.id] = (map[s.id] || 0) + 1;
+      db.set('hb_freed', map);
+      const told = freeSeat(s.id);
+      toast(told ? 'Une place s\'est libérée : les personnes en attente sont prévenues' : 'Une place s\'est libérée');
+      render();
+    }
+  });
+  $('wait-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('wt-name'), email = $('wt-email');
+    const ok = [
+      setErr(name, name.value.trim() ? '' : 'Indiquez votre nom.'),
+      setErr(email, validEmail(email.value) ? '' : 'Saisissez une adresse e-mail valide.')
+    ];
+    if (ok.includes(false)) return;
+    joinWaitlist({ sessionId: waitSession.id, title: waitSession.title, when: when(waitSession), name: name.value.trim(), email: email.value.trim().toLowerCase() });
+    wdlg.close();
+    toast(`Vous êtes sur la liste d'attente de « ${waitSession.title} »`);
+    render();
+  });
+
+  // Fenêtre de réservation
+  const dlg = $('book');
+  let session = null;
+  const codeCheck = () => {
+    const c = checkCode($('bk-code').value, $('bk-email').value);
+    if (c.ok && c.kind === 'cercle') return { ok: false, msg: 'CERCLE15 s\'applique aux tableaux végétaux de la boutique.' };
+    return c.ok && c.kind === 'date' ? { ok: false, msg: "MADATE15 s'applique aux bouquets de la boutique." } : c;
+  };
+  const totals = () => {
+    const seats = +$('bk-seats').value, sub = seats * PRICE, c = codeCheck();
+    const discount = c.ok ? Math.round(PRICE * c.rate * 100) / 100 : 0; // la remise porte sur une place
+    return { seats, sub, c, discount, total: Math.round((sub - discount) * 100) / 100 };
+  };
+  const refresh = () => {
+    const t = totals(), msg = $('bk-code-err');
+    msg.textContent = t.c.ok ? `${t.c.label} sur une place : −${euro(t.discount)}` : t.c.msg;
+    msg.classList.toggle('good', t.c.ok);
+    $('bk-total').textContent = euro(t.total);
+  };
+  ['bk-seats', 'bk-code'].forEach(id => $(id).addEventListener('input', refresh));
+  $('bk-email').addEventListener('change', refresh);
+
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-book]');
+    if (!b) return;
+    session = SESSIONS.find(s => s.id === b.dataset.book);
+    const n = Math.min(4, left(session));
+    $('book-title').textContent = session.title;
+    $('book-recap').innerHTML = `<b>${esc(session.title)}</b><span>${when(session)}</span><span>Atelier Hortus Blanc, 31 rue de la Tour d'Auvergne, Tours</span><span>${left(session)} place(s) disponible(s)</span>`;
+    $('bk-seats').innerHTML = Array.from({ length: n }, (_, i) => `<option value="${i + 1}">${i + 1} place${i ? 's' : ''}</option>`).join('');
+    $('book-form').hidden = false; $('book-thanks').hidden = true;
+    prefill({ name: 'bk-name', email: 'bk-email', tel: 'bk-tel' });
+    refresh();
+    document.querySelectorAll('dialog[open]').forEach(d => d.close());
+    dlg.showModal(); document.body.style.overflow = 'hidden';
+  });
+  dlg.addEventListener('close', () => { document.body.style.overflow = ''; });
+
+  $('book-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('bk-name'), email = $('bk-email'), tel = $('bk-tel');
+    const ok = [
+      setErr(name, name.value.trim() ? '' : 'Indiquez votre nom.'),
+      setErr(email, validEmail(email.value) ? '' : 'Saisissez une adresse e-mail valide.'),
+      setErr(tel, validTel(tel.value) ? '' : 'Numéro invalide, par exemple 06 12 34 56 78.')
+    ];
+    if (ok.includes(false)) return;
+    const t = totals();
+    if (t.seats > left(session)) { toast('Il ne reste plus assez de places.'); render(); return; }
+    const booking = {
+      id: uid(), sessionId: session.id, title: session.title, when: when(session), start: session.date, seats: t.seats,
+      name: name.value.trim(), email: email.value.trim().toLowerCase(), tel: tel.value.trim(),
+      code: t.c.ok ? t.c.code : null, codeKind: t.c.ok ? t.c.kind : null, total: t.total, createdAt: new Date().toISOString()
+    };
+    useCode(t.c, booking.email);
+    db.set('hb_bookings', [...db.get('hb_bookings', []), booking]);
+    // Réservé : on quitte la liste d'attente de cet atelier
+    db.set('hb_waitlist', waitlist().filter(w => w.sessionId !== session.id)); renderNotices();
+    $('book-msg').textContent = `${t.seats} place${t.seats > 1 ? 's' : ''} réservée${t.seats > 1 ? 's' : ''} pour « ${session.title} », ${when(session)}. ${euro(t.total)} à régler sur place.`;
+    // Carte du cercle : l'atelier compte comme un achat
+    const gain = HB.creditCard(booking.email, t.total, `Atelier ${session.title}`);
+    if (gain) $('book-msg').textContent += ` ${HB.gainText(gain)}.`;
+    $('book-mail').href = mailto(`Réservation : ${session.title}`, [
+      'Bonjour,', '', `Je viens de réserver ${t.seats} place(s) pour l'atelier « ${session.title} » du ${when(session)}.`,
+      booking.code ? `Code avantage : ${booking.code}` : '', `Montant : ${euro(t.total)}`, '', `${booking.name} · ${booking.email}${booking.tel ? ' · ' + booking.tel : ''}`
+    ]);
+    $('book-form').hidden = true; $('book-thanks').hidden = false;
+    // Envoi direct : la réservation part toute seule, le bouton devient une confirmation
+    $('book-mail').hidden = HB.direct;
+    $('book-sent').hidden = true;
+    if (HB.direct) envoyer(`Réservation : ${session.title}`, [
+      'Bonjour,', '', `Je viens de réserver ${t.seats} place(s) pour l'atelier « ${session.title} » du ${when(session)}.`,
+      booking.code ? `Code avantage : ${booking.code}` : '', `Montant : ${euro(t.total)}`, '', `${booking.name} · ${booking.email}${booking.tel ? ' · ' + booking.tel : ''}`
+    ], booking).then(r => { $('book-sent').hidden = r !== 'direct'; });
+    render();
+  });
+
+  // Devis pour un atelier privé
+  prefill({ name: 'q-name', email: 'q-email' });
+  $('quote-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('q-name'), email = $('q-email'), people = $('q-people');
+    const ok = [
+      setErr(name, name.value.trim() ? '' : 'Indiquez votre nom.'),
+      setErr(email, validEmail(email.value) ? '' : 'Saisissez une adresse e-mail valide.'),
+      setErr(people, +people.value >= 4 ? '' : 'À partir de 4 personnes.')
+    ];
+    if (ok.includes(false)) return;
+    const type = e.target.querySelector('input[name="qtype"]:checked').value, date = $('q-date').value;
+    saveRequest(`Atelier privé · ${type}`, `${people.value} personnes${date ? ', le ' + HB.fmtDate(date) : ''}`, email.value);
+    envoyer(`Devis atelier privé : ${type}`, [
+      'Bonjour,', '', `Je souhaiterais un devis pour un atelier floral privé (${type}).`, '',
+      `Nombre de personnes : ${people.value}`, date ? `Date envisagée : ${HB.fmtDate(date)}` : '', `Lieu : ${$('q-place').value}`,
+      $('q-msg').value.trim() ? `Idée : ${$('q-msg').value.trim()}` : '', '', `${name.value.trim()} · ${email.value.trim()}`
+    ]);
+    $('quote-body').hidden = true; $('quote-thanks').hidden = false;
+  });
+</script>
+</body>
+</html>

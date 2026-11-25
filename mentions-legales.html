@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Aperçu : la page ne doit pas apparaître dans Google. Retirer cette ligne au lancement officiel. -->
+<meta name="robots" content="noindex">
+<title>Mentions légales · Atelier Hortus Blanc</title>
+<meta name="description" content="Mentions légales, données personnelles, stockage local et règlement de la carte du cercle de l'Atelier Hortus Blanc, fleuriste créateur à Tours.">
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-italique.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#17302A">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/donnees.js" as="script">
+<link rel="preload" href="assets/app.js" as="script">
+<style>
+  .legal { padding-top: 0; }
+  .legal .wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; align-items: start; }
+  .legal-toc { position: sticky; top: calc(110px + var(--strip, 0px)); display: grid; gap: 6px; font-size: .84rem; }
+  .legal-toc a { color: var(--ink-soft); padding-block: 4px; }
+  .legal-toc a:hover { color: var(--terra-ink); }
+  .legal-block { scroll-margin-top: calc(110px + var(--strip, 0px)); padding-block: 8px 40px; border-bottom: 1px solid var(--line); }
+  .legal-block:last-child { border-bottom: 0; }
+  .legal-block + .legal-block { padding-top: 40px; }
+  .legal-block h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: 8px 0 16px; }
+  .legal-block .num { font-family: var(--serif); font-style: italic; color: var(--terra-ink); font-size: 1.1rem; }
+  .facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 24px; margin-top: 12px; font-size: .95rem; }
+  .facts dt { color: var(--ink-soft); }
+  .facts dd { color: var(--ink); margin: 0; }
+  .todo { font-style: italic; color: var(--terra-ink); }
+  .demo-note { margin-top: 20px; border-left: 2px solid var(--terra); padding: 4px 0 4px 16px; font-size: .9rem; color: var(--ink-soft); }
+  @media (max-width: 900px) {
+    .legal .wrap { grid-template-columns: 1fr; gap: 32px; }
+    .legal-toc { position: static; grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .facts { grid-template-columns: 1fr; gap: 2px; }
+    .facts dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body data-page="mentions">
+
+<main>
+  <section class="page-hero">
+    <svg class="acanthe-bg" aria-hidden="true"><use href="#acanthe"/></svg>
+    <div class="wrap">
+      <div>
+        <p class="crumbs"><a href="index.html">Accueil</a><span>/</span><span>Mentions légales</span></p>
+        <p class="eyebrow">Informations légales</p>
+        <h1>Mentions légales <em>et confidentialité.</em></h1>
+      </div>
+      <div>
+        <p class="lead">Qui publie ce site, ce qu'il garde de vos visites et comment fonctionne la carte du cercle. Dernière mise à jour : 17 novembre 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section legal">
+    <div class="wrap">
+      <nav class="legal-toc" aria-label="Sommaire">
+        <a href="#editeur">1. Éditeur du site</a>
+        <a href="#hebergement">2. Hébergement</a>
+        <a href="#propriete">3. Propriété intellectuelle</a>
+        <a href="#donnees">4. Données personnelles</a>
+        <a href="#stockage">5. Cookies et stockage</a>
+        <a href="#messages">6. Messages du cercle</a>
+        <a href="#carte">7. Carte du cercle</a>
+        <a href="#ventes">8. Prix et commandes</a>
+      </nav>
+
+      <div class="prose">
+        <div class="legal-block" id="editeur">
+          <span class="num">1.</span>
+          <h2>Éditeur du site</h2>
+          <dl class="facts">
+            <dt>Nom commercial</dt><dd>Atelier Hortus Blanc</dd>
+            <dt>Responsable de la publication</dt><dd>Charly Dubois</dd>
+            <dt>Adresse</dt><dd>31 rue de la Tour d'Auvergne, 37000 Tours (accueil sur rendez-vous)</dd>
+            <dt>Téléphone</dt><dd><a href="tel:+33762761773">07 62 76 17 73</a></dd>
+            <dt>Courriel</dt><dd><a href="mailto:atelierhortusblanc@gmail.com">atelierhortusblanc@gmail.com</a></dd>
+            <dt>Statut et SIRET</dt><dd class="todo">À compléter avant la mise en ligne</dd>
+          </dl>
+        </div>
+
+        <div class="legal-block" id="hebergement">
+          <span class="num">2.</span>
+          <h2>Hébergement</h2>
+          <p>Version d'aperçu, hébergée par GitHub Pages. L'hébergeur définitif sera indiqué ici au lancement du site.</p>
+          <dl class="facts">
+            <dt>Hébergeur</dt><dd>GitHub, Inc. (service GitHub Pages)</dd>
+            <dt>Adresse</dt><dd>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</dd>
+            <dt>Site</dt><dd><a href="https://pages.github.com/" target="_blank" rel="noopener">pages.github.com</a></dd>
+          </dl>
+        </div>
+
+        <div class="legal-block" id="propriete">
+          <span class="num">3.</span>
+          <h2>Propriété intellectuelle</h2>
+          <p>Les créations florales présentées, leurs photographies, les textes et le logo appartiennent à l'Atelier Hortus Blanc. Leur reproduction, même partielle, demande un accord écrit préalable.</p>
+          <p>Vous pouvez partager une page ou une photo en citant l'atelier et en renvoyant vers ce site ou vers le compte Instagram <a href="https://www.instagram.com/atelierhortusblanc_fleuriste/" target="_blank" rel="noopener">@atelierhortusblanc_fleuriste</a>.</p>
+        </div>
+
+        <div class="legal-block" id="donnees">
+          <span class="num">4.</span>
+          <h2>Données personnelles</h2>
+          <p>L'atelier ne demande que ce qui sert à vous répondre, à préparer une commande ou à réserver un atelier : nom, courriel, téléphone si vous le donnez, et le détail de la demande.</p>
+          <ul class="prose-list">
+            <li><b>Pourquoi :</b> traiter votre commande, votre réservation ou votre devis, et tenir votre carte du cercle.</li>
+            <li><b>Combien de temps :</b> trois ans après le dernier échange, puis suppression.</li>
+            <li><b>Avec qui :</b> personne. Vos données ne sont ni vendues ni prêtées.</li>
+            <li><b>Vos droits :</b> accès, rectification, suppression, opposition et portabilité, sur simple courriel à l'atelier. Vous pouvez aussi saisir la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</li>
+          </ul>
+          <p class="demo-note">Version de démonstration : le compte client, le panier, les commandes et les réservations sont enregistrés uniquement dans votre navigateur. Rien n'est envoyé à un serveur. Effacer les données du site dans les réglages du navigateur suffit à tout supprimer.</p>
+        </div>
+
+        <div class="legal-block" id="stockage">
+          <span class="num">5.</span>
+          <h2>Cookies et stockage</h2>
+          <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. Il garde dans votre navigateur (stockage local) quelques informations utiles à votre visite :</p>
+          <ul class="prose-list">
+            <li>le contenu du panier, la liste d'envies et le compte client ;</li>
+            <li>les fleurs et couleurs choisies dans le quiz, les avis et la participation au concours ;</li>
+            <li>la fermeture du bandeau d'annonce et votre choix pour la galerie Instagram.</li>
+          </ul>
+          <p>Les polices de caractères sont hébergées sur le site lui-même : votre visite ne déclenche aucun appel vers Google.</p>
+          <p>La galerie Instagram de l'accueil ne se charge que si vous cliquez sur « Afficher les publications ». Instagram (Meta) peut alors déposer ses propres cookies, selon sa politique de confidentialité. Votre choix est retenu dans votre navigateur ; effacer les données du site le remet à zéro.</p>
+        </div>
+
+        <div class="legal-block" id="messages">
+          <span class="num">6.</span>
+          <h2>Messages du cercle</h2>
+          <p>Les nouveautés, offres et invitations du cercle ne sont envoyées qu'aux membres qui l'ont accepté. Chaque message permet de se désinscrire, et l'option se coupe à tout moment depuis l'espace client.</p>
+        </div>
+
+        <div class="legal-block" id="carte">
+          <span class="num">7.</span>
+          <h2>Carte du cercle</h2>
+          <p>La carte est gratuite et se crée avec le compte client.</p>
+          <ul class="prose-list">
+            <li><b>Premier achat :</b> 10 % du montant sont crédités sur la carte.</li>
+            <li><b>Achats suivants :</b> 1 point par euro dépensé. Chaque palier de 100 points ajoute 5 € à la cagnotte.</li>
+            <li><b>Niveaux :</b> Bouton dès l'inscription, Éclose à 150 points, Bouquet à 400 points. Chaque niveau ouvre des avantages : avant-premières, offres réservées, invitations aux soirées de l'atelier.</li>
+            <li><b>Utilisation :</b> la cagnotte se déduit d'une commande suivante, en boutique en ligne ou à l'atelier. Elle n'est pas échangeable contre de l'argent.</li>
+          </ul>
+          <p class="demo-note">Règlement de démonstration : montants, paliers et durée de validité restent à valider par l'atelier avant la mise en ligne.</p>
+        </div>
+
+        <div class="legal-block" id="ventes">
+          <span class="num">8.</span>
+          <h2>Prix et commandes</h2>
+          <p>Les prix et les dates affichés sont indicatifs. Chaque création étant faite à la main, la commande est confirmée par l'atelier, par courriel ou par téléphone, avant tout paiement. Les fleurs fraîches et les pièces faites sur mesure ne peuvent pas faire l'objet d'un droit de rétractation (article L221-28 du Code de la consommation).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="assets/donnees.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

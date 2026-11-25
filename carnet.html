@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Aperçu : la page ne doit pas apparaître dans Google. Retirer cette ligne au lancement officiel. -->
+<meta name="robots" content="noindex">
+<title>Le carnet · Atelier Hortus Blanc</title>
+<meta name="description" content="La fleur du mois, le quiz « Quel bouquet vous ressemble ? », les fêtes de l'année et les conseils d'entretien de l'Atelier Hortus Blanc.">
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-italique.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#17302A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Atelier Hortus Blanc">
+<meta property="og:title" content="Le carnet · Atelier Hortus Blanc">
+<meta property="og:description" content="La fleur du mois, le quiz « Quel bouquet vous ressemble ? », les fêtes de l&#x27;année et les conseils d&#x27;entretien de l&#x27;Atelier Hortus Blanc.">
+<!-- Aperçu de partage : remplacer par l'adresse complète une fois le site en ligne (ex. https://.../images/partage.jpg) -->
+<meta property="og:image" content="images/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/donnees.js" as="script">
+<link rel="preload" href="assets/app.js" as="script">
+</head>
+<body data-page="carnet">
+
+<main>
+  <section class="page-hero">
+    <svg class="acanthe-bg" aria-hidden="true"><use href="#acanthe"/></svg>
+    <div class="wrap">
+      <div>
+        <p class="crumbs"><a href="index.html">Accueil</a><span>/</span><span>Le carnet</span></p>
+        <p class="eyebrow">Le carnet de l'atelier</p>
+        <h1>Revenez <em>chaque mois.</em></h1>
+      </div>
+      <div>
+        <p class="lead">Une fleur à l'honneur chaque mois, un quiz pour trouver votre bouquet, les fêtes à ne pas oublier et les gestes pour faire durer vos créations.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#quiz">Faire le quiz <svg class="go"><use href="#arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#fetes">Les fêtes de l'année</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleur du mois -->
+  <section class="section tight" id="fleur" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sr-only">La fleur du mois</h2>
+      <div class="flower-card reveal" id="flower"></div>
+      <div class="month-strip" id="months" role="group" aria-label="Choisir un mois"></div>
+
+      <div class="herbier reveal" id="herbier">
+        <div class="herbier-head">
+          <div>
+            <p class="eyebrow">Mon herbier</p>
+            <h2>Une fleur cueillie <em>chaque mois.</em></h2>
+          </div>
+          <p>Revenez chaque mois cueillir la fleur du moment. À la sixième page de votre herbier, un petit bouquet séché vous attend à l'atelier.</p>
+        </div>
+        <div class="herbier-pages" id="herbier-pages"></div>
+        <div class="herbier-foot" id="herbier-foot" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="section tight" id="quiz" style="padding-top:0">
+    <div class="wrap">
+      <div class="quiz reveal" id="quiz-box" aria-live="polite">
+        <svg class="acanthe-bg" aria-hidden="true"><use href="#acanthe"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fêtes de l'année -->
+  <section class="section tight bg-sand" id="fetes">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Ne plus rien oublier</p>
+          <h2 class="reveal d1">Les fêtes <em>de l'année.</em></h2>
+        </div>
+        <p class="reveal d2">Choisissez les dates qui comptent pour vous : quand l'une approche, une petite carte « Pour vous » vous attend sur le site, avec une idée de l'atelier.</p>
+      </div>
+      <div class="events" id="events"></div>
+      <p class="note" style="margin-top:20px">Vos rappels sont gardés sur cet appareil et apparaissent aussi dans votre espace client. Pour l'anniversaire d'un proche, ajoutez une date dans « Mon compte » : −15 % sur un bouquet la semaine venue.</p>
+    </div>
+  </section>
+
+  <!-- Conseils d'entretien -->
+  <section class="section tight" id="conseils">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Faire durer</p>
+          <h2 class="reveal d1">Conseils <em>d'entretien.</em></h2>
+        </div>
+        <p class="reveal d2">Une composition séchée bien placée tient plusieurs années. Voici les gestes que l'atelier donne à chaque client.</p>
+      </div>
+      <div class="filters" id="tip-filters" role="group" aria-label="Filtrer les conseils" style="margin-bottom:24px"></div>
+      <div class="tips" id="tips"></div>
+      <p class="note" style="margin-top:24px">Pour aller plus loin, lisez <a href="journal.html" style="color:var(--terra-ink)">le journal de l'atelier</a>. Une question sur une création achetée à l'atelier ? Écrivez-nous depuis le <a href="index.html#contact" style="color:var(--terra-ink)">formulaire de contact</a>, avec une photo si possible.</p>
+    </div>
+  </section>
+</main>
+
+<script src="assets/donnees.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const { $, esc, euro, media, PRODUCTS, EVENTS, reminders, toggleReminder, daysUntil, favBtn, syncFavButtons, db, observe, toast } = HB;
+  const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+
+  // ---------- Fleur du mois ----------
+  // petals: nombre de pétales, shape: forme (round, long, tiny)
+  const MONTHS = [
+    { m: 'Janv.', name: 'Hellébore', meaning: 'la sérénité', color: '#C9A9C4', petals: 5, shape: 'round',
+      story: 'On l\'appelle aussi rose de Noël : elle fleurit au cœur de l\'hiver, quand le jardin dort.', tip: 'En vase, fendez le bas de la tige sur 2 cm : elle boit mieux et tient une semaine de plus.' },
+    { m: 'Févr.', name: 'Mimosa', meaning: 'la sensibilité', color: '#E3BF3A', petals: 14, shape: 'tiny',
+      story: 'Ses pompons jaunes annoncent le printemps avant l\'heure. Il sèche très bien, tête en bas.', tip: 'Gardez-le loin du chauffage : la chaleur ferme ses pompons en quelques heures.' },
+    { m: 'Mars', name: 'Renoncule', meaning: 'le charme', color: '#E4977D', petals: 10, shape: 'round',
+      story: 'Des dizaines de pétales fins comme du papier, qui s\'ouvrent lentement pendant dix jours.', tip: 'Peu d\'eau dans le vase : 5 cm suffisent, sinon les tiges ramollissent.' },
+    { m: 'Avril', name: 'Tulipe', meaning: 'la déclaration', color: '#C4683A', petals: 6, shape: 'long',
+      story: 'Elle continue de grandir une fois coupée et se tourne vers la lumière : chaque jour, le bouquet change.', tip: 'Ne la mélangez pas tout de suite aux narcisses, leur sève l\'abîme.' },
+    { m: 'Mai', name: 'Pivoine', meaning: 'le bonheur', color: '#E3A1AE', petals: 12, shape: 'round',
+      story: 'La reine des bouquets de mariée, en boutons serrés qui explosent en trois jours.', tip: 'Achetez-la en bouton « guimauve » : elle s\'ouvrira chez vous.' },
+    { m: 'Juin', name: 'Lavande', meaning: 'la tendresse', color: '#8E7DB8', petals: 16, shape: 'tiny',
+      story: 'Cueillie au début de la floraison, elle garde sa couleur et son parfum des années.', tip: 'Pour la sécher, en petites bottes, tête en bas, dans un endroit sombre et sec.' },
+    { m: 'Juil.', name: 'Hortensia', meaning: 'la gratitude', color: '#93AEC9', petals: 4, shape: 'round',
+      story: 'Une seule tête suffit à remplir un vase. Stabilisé, il devient la base de nos couronnes.', tip: 'S\'il fane, plongez la tête entière dans l\'eau froide une heure : il repart.' },
+    { m: 'Août', name: 'Tournesol', meaning: 'la joie', color: '#E0A526', petals: 18, shape: 'long',
+      story: 'Le soleil en bouquet. Il sèche avec ses pétales recourbés, très graphique.', tip: 'Vase haut et lourd : sa tête pèse, il faut le soutenir.' },
+    { m: 'Sept.', name: 'Dahlia', meaning: 'la reconnaissance', color: '#B5473A', petals: 14, shape: 'long',
+      story: 'Des formes géométriques parfaites, du pompon à la fleur de cactus. La star de la rentrée.', tip: 'Changez l\'eau tous les jours : c\'est une fleur gourmande.' },
+    { m: 'Oct.', name: 'Amarante', meaning: 'la constance', color: '#8C2F39', petals: 16, shape: 'tiny',
+      story: 'Ses longues grappes retombantes ne perdent pas leur couleur en séchant. On la retrouve dans la composition « Flamboyant ».', tip: 'Suspendez-la à sécher entière : elle garde son mouvement.' },
+    { m: 'Nov.', name: 'Chrysanthème', meaning: 'la fidélité', color: '#D98E3E', petals: 16, shape: 'long',
+      story: 'Bien plus que la fleur de la Toussaint : au Japon, c\'est la fleur impériale. En pompon cuivré, elle réchauffe les bouquets d\'automne.', tip: 'Elle tient trois semaines en vase : retirez seulement les feuilles qui trempent.' },
+    { m: 'Déc.', name: 'Amaryllis', meaning: 'la fierté', color: '#A8323A', petals: 6, shape: 'long',
+      story: 'Quatre grandes fleurs sur une tige creuse : le bouquet de fête à elle seule.', tip: 'Glissez une baguette dans la tige creuse pour qu\'elle ne plie pas.' }
+  ];
+  const nowMonth = new Date().getMonth();
+  let month = nowMonth;
+
+  function flowerSVG(f) {
+    const n = f.petals, petals = [];
+    const [rx, ry, dist] = f.shape === 'long' ? [7, 22, 22] : f.shape === 'tiny' ? [6, 6, 26] : [15, 18, 18];
+    for (let layer = 0; layer < (f.shape === 'tiny' ? 2 : 1); layer++) {
+      for (let i = 0; i < n; i++) {
+        const a = (360 / n) * i + layer * (180 / n), d = dist - layer * 10;
+        petals.push(`<ellipse cx="0" cy="${-d}" rx="${rx - layer}" ry="${ry - layer * 2}" transform="rotate(${a})" fill="${f.color}" opacity="${layer ? 1 : .88}"/>`);
+      }
+    }
+    return `<svg viewBox="-60 -60 120 160" aria-hidden="true">
+      <path d="M0 10 C 2 40, -3 70, 0 98" stroke="#6F7350" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M0 62 C 14 50, 28 54, 32 46 C 22 44, 8 48, 0 62Z" fill="#6F7350"/>
+      <path d="M0 78 C -12 68, -26 70, -30 62 C -20 60, -8 64, 0 78Z" fill="#6F7350" opacity=".8"/>
+      <g>${petals.join('')}</g>
+      <circle r="${f.shape === 'round' ? 9 : 11}" fill="#161412" opacity=".82"/><circle r="5" fill="${f.color}" opacity=".5"/>
+    </svg>`;
+  }
+
+  // ---------- Herbier : une fleur cueillie par mois, 6 pages = un bouquet offert ----------
+  const PAGES = 6;
+  const now = new Date(), nowKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  const herbier = () => db.get('hb_herbier', []);
+  const picked = key => herbier().some(h => h.key === key);
+  function renderHerbier() {
+    const list = herbier().sort((a, b) => a.key.localeCompare(b.key)).slice(-PAGES), n = list.length;
+    $('herbier-pages').innerHTML = Array.from({ length: PAGES }, (_, i) => {
+      const h = list[i];
+      if (!h) return `<div class="h-page empty"><span aria-hidden="true">${i + 1}</span></div>`;
+      const f = MONTHS[h.month], label = new Date(h.year, h.month, 1).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+      return `<div class="h-page" style="--r:${(i % 2 ? 1 : -1) * (2 + i % 3)}deg">${flowerSVG(f)}<b>${esc(f.name)}</b><small>${label}</small></div>`;
+    }).join('');
+    const reward = db.get('hb_herbier_reward', '');
+    $('herbier-foot').innerHTML = n >= PAGES
+      ? `<p class="h-reward"><b>Votre herbier est complet.</b> Un petit bouquet séché vous attend à l'atelier : présentez le code <code>${esc(reward)}</code> lors de votre prochain passage.</p>`
+      : `<p>${n} fleur${n > 1 ? 's' : ''} cueillie${n > 1 ? 's' : ''} sur ${PAGES}. ${picked(nowKey) ? 'Prochaine cueillette le mois prochain.' : 'La fleur de ce mois vous attend juste au-dessus.'}</p>
+         <button type="button" class="link-btn" data-herbier-demo style="font-size:.78rem">Démo : remplir l'herbier</button>`;
+  }
+  function pick(entry) {
+    const list = herbier();
+    if (list.some(h => h.key === entry.key)) return;
+    db.set('hb_herbier', [...list, entry]);
+    if (list.length + 1 >= PAGES && !db.get('hb_herbier_reward', '')) db.set('hb_herbier_reward', 'HERBIER-' + HB.uid().slice(-5).toUpperCase());
+  }
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-pick]')) {
+      pick({ key: nowKey, year: now.getFullYear(), month: now.getMonth() });
+      toast(`${MONTHS[now.getMonth()].name} ajouté à votre herbier`);
+      renderFlower(); renderHerbier();
+    }
+    if (e.target.closest('[data-herbier-demo]')) {
+      // Démonstration : simule les mois précédents pour montrer l'herbier complet
+      for (let k = PAGES - 1; k >= 0; k--) {
+        const d = new Date(now.getFullYear(), now.getMonth() - k, 1);
+        pick({ key: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`, year: d.getFullYear(), month: d.getMonth() });
+      }
+      renderFlower(); renderHerbier();
+    }
+  });
+
+  function renderFlower() {
+    const f = MONTHS[month], label = new Date(2026, month, 1).toLocaleDateString('fr-FR', { month: 'long' });
+    $('flower').innerHTML = `
+      <div class="flower-art">${flowerSVG(f)}<span class="month-tag">${month === nowMonth ? 'Fleur du mois' : label}</span></div>
+      <div>
+        <p class="eyebrow">${month === nowMonth ? `Ce mois-ci, en ${label}` : `En ${label}`}</p>
+        <h3>${esc(f.name)}</h3>
+        <p class="meaning">Elle dit ${esc(f.meaning)}.</p>
+        <p class="story">${esc(f.story)}</p>
+        <div class="tip"><svg><use href="#drop"/></svg><span><b>Le conseil de l'atelier :</b> ${esc(f.tip)}</span></div>
+        ${month === nowMonth ? (picked(nowKey)
+          ? '<p class="picked-note">✓ Déjà dans votre herbier ce mois-ci</p>'
+          : '<button type="button" class="btn btn-primary btn-small" data-pick style="margin-top:18px">Cueillir pour mon herbier <svg><use href="#arrow"/></svg></button>') : ''}
+      </div>`;
+    $('months').querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-pressed', i === month));
+  }
+  $('months').innerHTML = MONTHS.map((f, i) =>
+    `<button type="button" class="${i === nowMonth ? 'now' : ''}" aria-pressed="false" aria-label="${f.name}, ${new Date(2026, i, 1).toLocaleDateString('fr-FR', { month: 'long' })}" style="--c:${f.color}"><i></i>${f.m}</button>`).join('');
+  $('months').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    month = [...$('months').children].indexOf(b);
+    renderFlower();
+  });
+  renderFlower();
+  renderHerbier();
+
+  // ---------- Quiz ----------
+  const PROFILES = {
+    boheme: { name: 'Bohème', product: 'bouquet-saison', text: 'Vous aimez ce qui a l\'air cueilli au bord du chemin : des herbes folles, des tons sable, un bouquet qui ne se tient pas trop droit.' },
+    audacieux: { name: 'Audacieux', product: 'buste-flamboyant', text: 'Vous voulez une pièce qui se remarque dès l\'entrée : couleurs franches, volumes, une composition qui fait parler.' },
+    nature: { name: 'Nature', product: 'tableau-mousse', text: 'Le vert vous apaise, et vous voulez du végétal sans arrosage. Un tableau de mousse fait entrer la forêt chez vous.' },
+    romantique: { name: 'Romantique', product: 'cloche', text: 'Vous aimez les fleurs qui racontent une histoire. Une composition sous cloche garde un moment, comme une photo.' },
+    precieux: { name: 'Précieux', product: 'pendentif', text: 'Peu d\'objets, mais choisis. Votre fleur, vous la portez sur vous, prise dans la résine.' }
+  };
+  const QUESTIONS = [
+    ['Votre dimanche idéal ?', [['Marché et brocante', 'boheme'], ['Vernissage, puis dîner', 'audacieux'], ['Balade en forêt', 'nature'], ['Brunch à deux', 'romantique'], ['Une flânerie devant les vitrines', 'precieux']]],
+    ['Une couleur qui vous ressemble ?', [['Sable et pampa', 'boheme'], ['Rouille et rouge', 'audacieux'], ['Vert mousse', 'nature'], ['Rose poudré', 'romantique'], ['Nacre et or', 'precieux']]],
+    ['Chez vous, on trouve…', [['Du rotin et des coussins', 'boheme'], ['Une pièce qui fait parler', 'audacieux'], ['Des plantes partout', 'nature'], ['Des bougies et des photos', 'romantique'], ['Peu d\'objets, mais choisis', 'precieux']]],
+    ['Votre fleur doit…', [['Vivre sa vie, un peu folle', 'boheme'], ['Faire de l\'effet', 'audacieux'], ['Ne demander aucun soin', 'nature'], ['Raconter une histoire', 'romantique'], ['Se garder sur soi', 'precieux']]]
+  ];
+  const LETTERS = 'ABCDE';
+  let step = 0, answers = [];
+  const box = $('quiz-box'), deco = box.innerHTML;
+
+  function renderQuiz() {
+    const saved = db.get('hb_quiz', null);
+    if (step === 0 && !answers.length && saved && PROFILES[saved]) return renderResult(saved, true);
+    const [q, opts] = QUESTIONS[step];
+    box.innerHTML = deco + `
+      <div class="quiz-progress" aria-hidden="true">${QUESTIONS.map((_, i) => `<i class="${i <= step ? 'on' : ''}"></i>`).join('')}</div>
+      <p class="eyebrow" style="position:relative">Quel bouquet vous ressemble ? · Question ${step + 1} sur ${QUESTIONS.length}</p>
+      <h2 class="quiz-q">${esc(q)}</h2>
+      <div class="quiz-opts">${opts.map(([label, p], i) => `<button type="button" data-p="${p}"><span>${LETTERS[i]}</span>${esc(label)}</button>`).join('')}</div>
+      <div class="quiz-foot"><span>30 secondes, 4 questions</span>${step ? '<button type="button" class="link-btn" data-back>← Question précédente</button>' : ''}</div>`;
+  }
+  function renderResult(key, again) {
+    const pr = PROFILES[key], p = byId[pr.product];
+    box.innerHTML = deco + `
+      <div class="quiz-result">
+        <div class="media">${media(p)}${favBtn(p.id)}</div>
+        <div>
+          <p class="kind">${again ? 'Votre profil floral' : 'Résultat du quiz'}</p>
+          <h3>Vous êtes <em>${pr.name}.</em></h3>
+          <p>${esc(pr.text)}</p>
+          <p style="margin-top:14px"><b style="color:var(--paper)">Notre suggestion : ${esc(p.name)}</b>, ${euro(p.price)}.</p>
+          <div class="actions">
+            <button type="button" class="btn btn-primary" data-add="${p.id}">Ajouter au panier <svg><use href="#bag"/></svg></button>
+            <a class="btn btn-ghost" href="boutique.html">Voir la boutique</a>
+            <button type="button" class="link-btn" data-restart style="color:var(--terra-soft)">Refaire le quiz</button>
+          </div>
+        </div>
+      </div>`;
+    syncFavButtons();
+  }
+  box.addEventListener('click', e => {
+    const opt = e.target.closest('[data-p]');
+    if (opt) {
+      answers[step] = opt.dataset.p;
+      if (step < QUESTIONS.length - 1) { step++; return renderQuiz(); }
+      const score = {};
+      answers.forEach(a => score[a] = (score[a] || 0) + 1);
+      const best = Math.max(...Object.values(score));
+      // égalité : la dernière réponse départage
+      const key = score[answers[3]] === best ? answers[3] : Object.keys(score).find(k => score[k] === best);
+      db.set('hb_quiz', key);
+      step = 0; answers = [];
+      renderResult(key);
+      return;
+    }
+    if (e.target.closest('[data-back]')) { step--; renderQuiz(); }
+    if (e.target.closest('[data-restart]')) { db.set('hb_quiz', null); step = 0; answers = []; renderQuiz(); }
+  });
+  renderQuiz();
+
+  // ---------- Fêtes de l'année ----------
+  function renderEvents() {
+    const on = reminders();
+    $('events').innerHTML = EVENTS.filter(ev => daysUntil(ev.date) >= 0).sort((a, b) => a.date.localeCompare(b.date)).map(ev => {
+      const d = daysUntil(ev.date), date = new Date(ev.date + 'T12:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+      const active = on.includes(ev.id);
+      return `<div class="event-row reveal">
+        <div class="count"><b>${d}</b><span>jour${d > 1 ? 's' : ''}</span></div>
+        <div><h3>${esc(ev.name)}</h3><p>${date} · ${esc(ev.idea)}</p></div>
+        <button type="button" class="btn btn-ghost btn-small remind-btn" data-remind="${ev.id}" aria-pressed="${active}">${active ? `Rappel ${ev.lead} j avant ✓` : 'Me le rappeler'}</button>
+      </div>`;
+    }).join('');
+    observe($('events'));
+  }
+  $('events').addEventListener('click', e => {
+    const b = e.target.closest('[data-remind]');
+    if (!b) return;
+    const ev = EVENTS.find(x => x.id === b.dataset.remind);
+    const active = toggleReminder(ev.id);
+    toast(active ? `C'est noté : on vous le rappelle ${ev.lead} jours avant ${ev.name === '1er mai' ? 'le 1er mai' : ev.name}` : `Rappel retiré pour ${ev.name}`);
+    renderEvents();
+    document.dispatchEvent(new CustomEvent('hb:data'));
+  });
+  renderEvents();
+
+  // ---------- Conseils d'entretien ----------
+  const TIP_CATS = [['all', 'Tout'], ['seche', 'Séché'], ['stabilise', 'Stabilisé'], ['vivant', 'Vivant'], ['bijoux', 'Bijoux']];
+  const TIPS = [
+    { cat: 'seche', ico: 'sun', title: 'Fleurs séchées', sub: 'Bouquets, compositions, couronnes · 1 à 3 ans', items: [
+      'Loin du soleil direct : les couleurs pâlissent en quelques semaines derrière une vitre.',
+      'Pas de salle de bain ni de cuisine : l\'humidité les ramollit.',
+      'Pour dépoussiérer, un sèche-cheveux à l\'air froid, à 30 cm.',
+      'Jamais d\'eau, même un peu.'] },
+    { cat: 'stabilise', ico: 'i-bell', title: 'Fleurs stabilisées', sub: 'Cloches, roses, hortensias · 3 à 5 ans', items: [
+      'Elles ne se boivent pas : pas d\'eau, pas de vaporisation.',
+      'Évitez les pièces au-dessus de 30 °C et les radiateurs.',
+      'Touchez-les le moins possible, les pétales restent souples mais fragiles.'] },
+    { cat: 'stabilise', ico: 'i-frame', title: 'Tableaux de mousse', sub: 'Tableaux et murs végétaux · plusieurs années', items: [
+      'Aucun arrosage ni lumière nécessaires : un couloir sombre leur va très bien.',
+      'Une pièce ni trop sèche ni trop humide (entre 40 et 70 % d\'humidité).',
+      'Si la mousse durcit en hiver, elle redevient souple quand l\'air s\'humidifie.'] },
+    { cat: 'vivant', ico: 'i-terrarium', title: 'Terrarium', sub: 'Plantes vivantes sous verre', items: [
+      'Lumière vive mais jamais de soleil direct, qui chauffe le verre.',
+      'Une ou deux pulvérisations toutes les deux ou trois semaines.',
+      'Buée permanente ? Ouvrez une journée pour laisser respirer.'] },
+    { cat: 'vivant', ico: 'i-bouquet', title: 'Fleurs fraîches', sub: 'Bouquets du jour, mariages', items: [
+      'Recoupez les tiges en biseau de 2 cm dès l\'arrivée.',
+      'Changez l\'eau tous les deux jours, dans un vase bien propre.',
+      'Éloignez le bouquet de la corbeille de fruits : ils font faner les fleurs plus vite.',
+      'Et quand il fane : on peut le sécher, ou en garder une fleur dans un bijou.'] },
+    { cat: 'bijoux', ico: 'i-jewel', title: 'Bijoux en résine', sub: 'Pendentifs, boucles d\'oreilles', items: [
+      'Retirez-les pour la douche, la piscine et le sport.',
+      'Rangez-les à l\'abri du soleil : les UV peuvent jaunir la résine.',
+      'Un chiffon doux et sec suffit ; pas de produit pour argent.'] }
+  ];
+  let tipCat = 'all';
+  $('tip-filters').innerHTML = TIP_CATS.map(([k, l]) => `<button type="button" data-tc="${k}" aria-pressed="${k === tipCat}">${l}</button>`).join('');
+  $('tip-filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-tc]');
+    if (!b) return;
+    tipCat = b.dataset.tc;
+    $('tip-filters').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    renderTips();
+  });
+  function renderTips() {
+    $('tips').innerHTML = TIPS.filter(t => tipCat === 'all' || t.cat === tipCat).map((t, i) => `
+      <details class="tip-card"${i === 0 ? ' open' : ''}>
+        <summary><svg aria-hidden="true"><use href="#${t.ico}"/></svg><span><b>${esc(t.title)}</b><small>${esc(t.sub)}</small></span></summary>
+        <ul>${t.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      </details>`).join('');
+  }
+  renderTips();
+</script>
+</body>
+</html>

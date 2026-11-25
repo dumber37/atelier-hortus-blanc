@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Aperçu : la page ne doit pas apparaître dans Google. Retirer cette ligne au lancement officiel. -->
+<meta name="robots" content="noindex">
+<title>Boutique · Atelier Hortus Blanc</title>
+<meta name="description" content="Pièces uniques, tableaux végétaux, bijoux floraux et bouquets séchés de l'Atelier Hortus Blanc, à retirer à Tours ou livrés.">
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-italique.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#17302A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Atelier Hortus Blanc">
+<meta property="og:title" content="Boutique · Atelier Hortus Blanc">
+<meta property="og:description" content="Pièces uniques, tableaux végétaux, bijoux floraux et bouquets séchés de l&#x27;Atelier Hortus Blanc, à retirer à Tours ou livrés.">
+<!-- Aperçu de partage : remplacer par l'adresse complète une fois le site en ligne (ex. https://.../images/partage.jpg) -->
+<meta property="og:image" content="images/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/donnees.js" as="script">
+<link rel="preload" href="assets/app.js" as="script">
+</head>
+<body data-page="boutique">
+
+<main>
+  <section class="page-hero">
+    <svg class="acanthe-bg" aria-hidden="true"><use href="#acanthe"/></svg>
+    <div class="wrap">
+      <div>
+        <p class="crumbs"><a href="index.html">Accueil</a><span>/</span><span>Boutique</span></p>
+        <p class="eyebrow">Boutique en ligne</p>
+        <h1>Emportez un peu <em>de l'atelier.</em></h1>
+      </div>
+      <div>
+        <p class="lead">Pièces uniques, tableaux végétaux, bijoux et bouquets durables. Commandez en ligne, puis retirez votre création à l'atelier ou faites-la livrer à Tours.</p>
+        <div class="actions">
+          <button class="btn btn-primary" data-cart-open>Voir mon panier <svg><use href="#bag"/></svg></button>
+          <a class="btn btn-ghost" href="#sur-mesure">Composer mon bouquet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sr-only">Les créations</h2>
+      <div class="shop-bar">
+        <div class="filters" id="filters" role="group" aria-label="Filtrer les créations"></div>
+        <p class="note" id="shop-count"></p>
+      </div>
+      <div class="product-grid" id="products"></div>
+      <p class="note" style="margin-top:40px">Prix indicatifs pour la démonstration, à confirmer avec l'atelier. Dimensions indicatives. Les fleurs séchées et stabilisées étant travaillées à la main, chaque pièce peut légèrement varier. Une envie sur mesure ? <a href="index.html#contact" style="color:var(--terra-ink)">Demandez une création personnalisée</a>.</p>
+    </div>
+  </section>
+
+  <!-- Bouquet sur mesure -->
+  <section class="section bg-sand" id="sur-mesure">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Sur mesure</p>
+          <h2 class="reveal d1">Composez <em>votre bouquet.</em></h2>
+        </div>
+        <p class="reveal d2">Choisissez jusqu'à trois fleurs séchées, la taille et l'emballage : l'aperçu et le prix se mettent à jour. Charly confirme la composition avant de la préparer.</p>
+      </div>
+      <div class="builder">
+        <div class="builder-preview reveal" aria-live="polite">
+          <div id="bq-art"></div>
+          <div class="picked" id="bq-picked"></div>
+          <div class="total-row"><span>Prix estimé</span><b id="bq-price"></b></div>
+          <p class="note" style="margin:0">Estimation indicative : le prix final dépend des fleurs disponibles cette semaine.</p>
+        </div>
+        <form class="form-card reveal d1" id="bq-form" novalidate>
+          <div id="bq-body">
+            <div class="field">
+              <span class="label">Les fleurs, trois au plus</span>
+              <div class="chips swatch-chips" id="bq-flowers"></div>
+              <small class="stem-count" id="bq-hint"></small>
+            </div>
+            <div class="field">
+              <span class="label">La taille</span>
+              <div class="chips" id="bq-size"></div>
+            </div>
+            <div class="field">
+              <span class="label">L'emballage</span>
+              <div class="chips" id="bq-wrap"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="bq-name">Nom</label><input id="bq-name" autocomplete="name"></div>
+              <div class="field"><label for="bq-email">E-mail</label><input id="bq-email" type="email" autocomplete="email"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="bq-date">Pour le</label><input id="bq-date" type="date"></div>
+              <div class="field"><label for="bq-for">Occasion (facultatif)</label><input id="bq-for" placeholder="Anniversaire de ma sœur…"></div>
+            </div>
+            <div class="form-foot">
+              <small data-direct="Le bouton envoie votre composition directement à l'atelier.">Le bouton prépare un e-mail adressé à l'atelier, avec votre composition.</small>
+              <button type="submit" class="btn btn-primary">Demander ce bouquet <svg class="go"><use href="#arrow"/></svg></button>
+            </div>
+          </div>
+          <div class="thanks" id="bq-thanks" hidden>
+            <span data-logo data-alt=""></span>
+            <h3>Joli <em>choix.</em></h3>
+            <p data-direct="Votre composition est bien envoyée à l'atelier. Charly vous répond pour confirmer les fleurs et le prix.">Votre messagerie s'ouvre avec la composition pré-remplie. Charly vous répond pour confirmer les fleurs et le prix.</p>
+            <button type="button" class="btn btn-ghost btn-small" id="bq-again" style="margin-top:18px">Composer un autre bouquet</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carte cadeau personnalisée -->
+  <section class="section" id="offrir">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">À offrir</p>
+          <h2 class="reveal d1">Une carte cadeau <em>à votre image.</em></h2>
+        </div>
+        <p class="reveal d2">Un montant ou un atelier, un mot pour la personne, une couleur : la carte se dessine pendant que vous écrivez. Elle est imprimée par l'atelier et remise dans son enveloppe.</p>
+      </div>
+      <div class="gift">
+        <div class="gift-preview reveal">
+          <div class="gift-card" id="gc-card" data-style="velours" aria-live="polite">
+            <svg class="gc-acanthe" aria-hidden="true"><use href="#acanthe"/></svg>
+            <div class="gc-top"><span data-logo data-alt=""></span><span class="gc-kicker">Carte cadeau</span></div>
+            <p class="gc-for" id="gc-for-out">Pour vous</p>
+            <p class="gc-msg" id="gc-msg-out">Un petit mot pour accompagner votre cadeau.</p>
+            <div class="gc-bottom"><b id="gc-value-out"></b><span>Atelier Hortus Blanc · Tours<br>Valable un an</span></div>
+          </div>
+          <p class="note" style="text-align:center">Aperçu de la carte imprimée (format 15 × 10 cm).</p>
+        </div>
+        <form class="form-card reveal d1" id="gc-form" novalidate>
+          <div class="field">
+            <span class="label">Le cadeau</span>
+            <div class="chips" id="gc-value"></div>
+          </div>
+          <div class="field">
+            <span class="label">La couleur</span>
+            <div class="chips swatch-chips" id="gc-style"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="gc-for">Pour</label><input id="gc-for" maxlength="30" placeholder="Léa"></div>
+            <div class="field"><label for="gc-from">De la part de</label><input id="gc-from" maxlength="30" placeholder="Camille"></div>
+          </div>
+          <div class="field"><label for="gc-msg">Votre mot</label><textarea id="gc-msg" maxlength="160" rows="3" placeholder="Joyeux anniversaire ! Un atelier pour créer ta propre couronne."></textarea><small class="stem-count" id="gc-count">0 / 160</small></div>
+          <div class="form-foot">
+            <small>La carte rejoint votre panier ; votre mot est repris dans la commande.</small>
+            <button type="submit" class="btn btn-primary">Ajouter au panier <svg><use href="#bag"/></svg></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abonnement particuliers -->
+  <section class="section bg-sand" id="abonnement">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Abonnement</p>
+          <h2 class="reveal d1">Le bouquet de saison, <em>chez vous.</em></h2>
+        </div>
+        <p class="reveal d2">Un bouquet séché composé au fil des saisons, à retirer à l'atelier ou livré à Tours. Sans engagement : vous arrêtez quand vous voulez.</p>
+      </div>
+      <div class="plans">
+        <article class="plan reveal">
+          <span class="kind">Au fil des saisons</span>
+          <h3>Saison</h3>
+          <p class="freq">Un bouquet à chaque saison, quatre par an</p>
+          <p class="plan-price">35 € <small>par bouquet</small></p>
+          <ul><li>Les couleurs de l'automne, de l'hiver, du printemps et de l'été</li><li>Un mot de l'atelier sur les fleurs choisies</li><li>Sans engagement</li></ul>
+          <button type="button" class="btn btn-ghost" data-abo="saison">Choisir cette formule</button>
+        </article>
+        <article class="plan featured reveal d1">
+          <span class="kind">Le plus fleuri</span>
+          <h3>Chaque mois</h3>
+          <p class="freq">Un nouveau bouquet tous les mois</p>
+          <p class="plan-price">29 € <small>par mois</small></p>
+          <ul><li>La fleur du mois du carnet dans chaque bouquet</li><li>Votre ancien bouquet repris pour être composté</li><li>Pause possible pendant les vacances</li></ul>
+          <button type="button" class="btn btn-primary" data-abo="mois" style="background:var(--terra-ink)">Choisir cette formule</button>
+        </article>
+        <article class="plan reveal d2">
+          <span class="kind">À offrir</span>
+          <h3>Trois mois</h3>
+          <p class="freq">Trois bouquets offerts, un par mois</p>
+          <p class="plan-price">85 € <small>en une fois</small></p>
+          <ul><li>Une carte écrite à la main avec le premier bouquet</li><li>Livraison à l'adresse de votre choix à Tours</li><li>Idéal pour une naissance ou un anniversaire</li></ul>
+          <button type="button" class="btn btn-ghost" data-abo="offrir">Choisir cette formule</button>
+        </article>
+      </div>
+      <form class="form-card abo-form reveal" id="abo-form" novalidate hidden>
+        <div id="abo-body">
+          <p class="kicker-line">Formule choisie : <b id="abo-chosen"></b></p>
+          <div class="field-row">
+            <div class="field"><label for="abo-start">Premier bouquet</label><select id="abo-start"></select></div>
+            <div class="field"><span class="label">Réception</span>
+              <div class="chips"><label><input type="radio" name="abo-mode" value="Retrait à l'atelier" checked><span>Retrait à l'atelier</span></label><label><input type="radio" name="abo-mode" value="Livraison à Tours (+5 €)"><span>Livraison +5 €</span></label></div>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="abo-name">Nom</label><input id="abo-name" autocomplete="name"></div>
+            <div class="field"><label for="abo-email">E-mail</label><input id="abo-email" type="email" autocomplete="email"></div>
+          </div>
+          <div class="field"><label for="abo-note">Couleurs aimées, allergies, pour qui… (facultatif)</label><input id="abo-note"></div>
+          <div class="form-foot">
+            <small>Aucun paiement en ligne : l'atelier vous recontacte pour confirmer.</small>
+            <button type="submit" class="btn btn-primary">Demander mon abonnement <svg class="go"><use href="#arrow"/></svg></button>
+          </div>
+        </div>
+        <div class="thanks" id="abo-thanks" hidden>
+          <span data-logo data-alt=""></span>
+          <h3>Premier bouquet <em>en préparation.</em></h3>
+          <p data-direct="Votre demande est bien envoyée à l'atelier. Charly vous confirme la date du premier bouquet.">Votre messagerie s'ouvre avec la demande pré-remplie. Charly vous confirme la date du premier bouquet.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap values-grid">
+      <div class="value reveal">
+        <svg><use href="#i-building"/></svg>
+        <h3>Retrait à l'atelier</h3>
+        <p>Gratuit, sur rendez-vous, au 31 rue de la Tour d'Auvergne.</p>
+      </div>
+      <div class="value reveal d1">
+        <svg><use href="#bag"/></svg>
+        <h3>Livraison à Tours</h3>
+        <p>Livraison par l'atelier dans Tours et les communes proches.</p>
+      </div>
+      <div class="value reveal d2">
+        <svg><use href="#i-gift"/></svg>
+        <h3>Emballage cadeau</h3>
+        <p>Chaque création part emballée, avec un mot si vous le souhaitez.</p>
+      </div>
+      <div class="value reveal d3">
+        <svg><use href="#user"/></svg>
+        <h3>Carte du cercle</h3>
+        <p>Membres du cercle : 10 % du premier achat crédités sur la carte.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/donnees.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const { $, esc, euro, media, PRODUCTS, observe, favBtn, favorites, syncFavButtons, setErr, validEmail, mailto, envoyer, prefill, saveRequest, toast, cart, db, fillLogos } = HB;
+
+  // Cartels : comme au musée, l'artiste, l'année, la matière et les dimensions
+  const CARTELS = {
+    'buste-paon': ['2026', 'H. 60 cm environ'],
+    'buste-flamboyant': ['2026', 'H. 55 cm environ'],
+    'triptyque': ['2026', 'Trois panneaux de 30 × 90 cm'],
+    'tableau-mousse': ['2026', '40 × 50 cm'],
+    'couronne-tete': ['2026', 'Ø 20 cm, ajustable'],
+    'bouquet-saison': ['Automne 2026', 'H. 45 cm environ'],
+    'petit-bouquet': ['Automne 2026', 'H. 25 cm environ'],
+    'cloche': ['2026', 'H. 20 cm, Ø 12 cm'],
+    'terrarium': ['2026', 'Ø 12 cm'],
+    'pendentif': ['2026', 'Ø 2,5 cm, chaîne 45 cm'],
+    'boucles': ['2026', 'H. 2 cm'],
+    'carte-cadeau': ['', '2 heures, une place']
+  };
+  const cartel = p => { const [y, d] = CARTELS[p.id] || ['', '']; return { line: `Charly Dubois${y ? `, ${y}` : ''}`, dims: d }; };
+  const CATS = [
+    ['all', 'Tout'], ['uniques', 'Compositions'], ['tableaux', 'Tableaux végétaux'],
+    ['bouquets', 'Bouquets & déco'], ['bijoux', 'Bijoux'], ['mariage', 'Mariage'], ['cadeaux', 'À offrir'], ['favs', '<svg class="chip-ico" aria-hidden="true"><use href="#heart"/></svg>Mes coups de cœur']
+  ];
+  let cat = 'all';
+  $('filters').innerHTML = CATS.map(([k, label]) => `<button type="button" data-cat="${k}" aria-pressed="${k === cat}">${label}</button>`).join('');
+  $('filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-cat]');
+    if (!b) return;
+    cat = b.dataset.cat;
+    $('filters').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  });
+
+  function render() {
+    const favs = favorites();
+    const list = PRODUCTS.filter(p => !p.hidden && (cat === 'all' || p.cat === cat || (cat === 'favs' && favs.includes(p.id))));
+    $('shop-count').textContent = `${list.length} création${list.length > 1 ? 's' : ''}`;
+    if (!list.length && cat === 'favs') {
+      $('products').innerHTML = `<p class="note" style="grid-column:1/-1;padding:30px 0">Aucun coup de cœur pour l'instant. Touchez le cœur sur une création pour la retrouver ici, même lors de votre prochaine visite.</p>`;
+      return;
+    }
+    $('products').innerHTML = list.map(p => { const c = cartel(p); return `
+      <article class="product reveal">
+        <div class="media">${p.img
+          ? `<button class="photo" style="width:100%;height:100%;border-radius:0" data-lightbox="images/${p.img}-large.webp" data-product="${p.id}" data-title="${esc(p.name)}" data-sub="${esc(`${c.line} · ${p.desc} ${c.dims}`)}" data-alt="${esc(p.alt)}" aria-label="Agrandir la photo : ${esc(p.name)}">${media(p)}</button><span class="badge-inedit">Inédit</span>`
+          : `${media(p)}<span class="tile-label" aria-hidden="true">${esc(p.kind)}</span>`}${favBtn(p.id)}</div>
+        <span class="kind">${esc(p.kind)}${p.unique && p.kind !== 'Pièce unique' ? ' · pièce unique' : ''}</span>
+        <h3>${esc(p.name)}</h3>
+        <div class="product-cartel"><b>${esc(c.line)}</b><span>${esc(p.desc)}</span>${c.dims ? `<span>${esc(c.dims)}</span>` : ''}</div>
+        <div class="buy">
+          <span class="price">${euro(p.price)}</span>
+          <button type="button" class="btn btn-primary btn-small" data-add="${p.id}">Ajouter au panier</button>
+        </div>
+      </article>`; }).join('');
+    observe($('products'));
+    syncFavButtons();
+  }
+  render();
+  // Retirer un coup de cœur depuis le filtre « Mes coups de cœur » met la liste à jour
+  document.addEventListener('hb:data', () => { if (cat === 'favs') render(); });
+
+  // ---------- Bouquet sur mesure ----------
+  const FLOWERS = [
+    ['Pampa', '#E9DCC3', 'plume'], ['Lavande', '#8E7DB8', 'spike'], ['Hortensia', '#9DB4CF', 'ball'], ['Blé', '#D4A856', 'spike'],
+    ['Amarante', '#8C2F39', 'plume'], ['Eucalyptus', '#7E9A86', 'leaf'], ['Rose séchée', '#C9707A', 'ball'], ['Phalaris', '#D98E3E', 'spike']
+  ];
+  const SIZES = [['Petit', 18, 7], ['Moyen', 30, 11], ['Généreux', 45, 15]];
+  const WRAPS = [['Papier kraft', 0], ['Soie et ruban', 3], ['Avec son vase', 15]];
+  const chip = (name, value, label, type, checked, extra = '') =>
+    `<label><input type="${type}" name="${name}" value="${value}"${checked ? ' checked' : ''}><span${extra}>${label}</span></label>`;
+  $('bq-flowers').innerHTML = FLOWERS.map(([n, c], i) => chip('bq-f', i, n, 'checkbox', i === 0 || i === 1, ` style="--c:${c}"`)).join('');
+  $('bq-size').innerHTML = SIZES.map(([n, p], i) => chip('bq-s', i, `${n} · ${p} €`, 'radio', i === 1)).join('');
+  $('bq-wrap').innerHTML = WRAPS.map(([n, p], i) => chip('bq-w', i, p ? `${n} · +${p} €` : n, 'radio', i === 0)).join('');
+  $('bq-date').min = new Date(Date.now() + 2 * 864e5).toISOString().slice(0, 10);
+
+  const state = () => ({
+    flowers: [...document.querySelectorAll('input[name="bq-f"]:checked')].map(i => FLOWERS[i.value]),
+    size: SIZES[document.querySelector('input[name="bq-s"]:checked').value],
+    wrap: WRAPS[document.querySelector('input[name="bq-w"]:checked').value]
+  });
+
+  // Dessin du bouquet : une tige par fleur, en alternant les fleurs choisies
+  function head(kind, c, x, y, r) {
+    if (kind === 'ball') return `<circle cx="${x}" cy="${y}" r="${r * 1.15}" fill="${c}"/><circle cx="${x - r * .35}" cy="${y - r * .3}" r="${r * .45}" fill="#fff" opacity=".18"/>`;
+    if (kind === 'spike') return Array.from({ length: 5 }, (_, k) => `<ellipse cx="${x}" cy="${y + k * r * .55}" rx="${r * .38}" ry="${r * .5}" fill="${c}"/>`).join('');
+    if (kind === 'leaf') return `<ellipse cx="${x - r * .5}" cy="${y}" rx="${r * .45}" ry="${r * .7}" fill="${c}" transform="rotate(-25 ${x} ${y})"/><ellipse cx="${x + r * .5}" cy="${y + r * .8}" rx="${r * .45}" ry="${r * .7}" fill="${c}" transform="rotate(25 ${x} ${y})"/>`;
+    return `<ellipse cx="${x}" cy="${y}" rx="${r * .65}" ry="${r * 1.5}" fill="${c}" opacity=".95"/>`;
+  }
+  function draw({ flowers, size, wrap }) {
+    const n = size[2], list = flowers.length ? flowers : [['', '#CFC6B8', 'ball']];
+    const stems = [];
+    for (let i = 0; i < n; i++) {
+      const t = i / (n - 1) - .5;
+      const x = 150 + t * (90 + n * 6), y = 92 + Math.abs(t) * 70 + (i % 2) * 16;
+      const [, c, kind] = list[i % list.length];
+      stems.push(`<path d="M150 232 Q ${150 + t * 30} 180 ${x} ${y + 10}" stroke="#6F7350" stroke-width="2" fill="none"/>` + head(kind, c, x, y, 13));
+    }
+    const wrapShape = wrap[1] === 15
+      ? `<path d="M112 222 h76 l-8 74 h-60z" fill="#DCE3DE" stroke="#A9B4AD" stroke-width="1.5"/><path d="M118 240 h64" stroke="#fff" stroke-width="3" opacity=".6"/>`
+      : `<path d="M96 200 L150 300 L204 200 L176 214 L150 206 L124 214Z" fill="${wrap[1] ? '#EBD2C4' : '#C8A57E'}"/>`
+        + (wrap[1] ? `<path d="M130 246 q20 10 40 0" stroke="#C4683A" stroke-width="4" fill="none"/><path d="M150 248 l-14 22 M150 248 l14 22" stroke="#C4683A" stroke-width="3"/>` : '');
+    return `<svg viewBox="0 0 300 310" role="img" aria-label="Aperçu du bouquet">${stems.join('')}${wrapShape}</svg>`;
+  }
+  function update() {
+    const s = state();
+    document.querySelectorAll('input[name="bq-f"]').forEach(b => b.disabled = !b.checked && s.flowers.length >= 3);
+    const k = s.flowers.length;
+    $('bq-hint').textContent = k >= 3 ? 'Trois fleurs choisies : décochez-en une pour changer.' : `${k} fleur${k > 1 ? 's' : ''} choisie${k > 1 ? 's' : ''} sur 3`;
+    $('bq-art').innerHTML = draw(s);
+    $('bq-picked').innerHTML = s.flowers.map(([n, c]) => `<span style="--c:${c}">${n}</span>`).join('') + `<span style="--c:var(--ink)">${s.size[0]} · ${s.size[2]} tiges</span>`;
+    $('bq-price').textContent = `environ ${euro(s.size[1] + s.wrap[1])}`;
+  }
+  $('bq-form').addEventListener('change', update);
+  update();
+  prefill({ name: 'bq-name', email: 'bq-email' });
+
+  $('bq-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const s = state(), name = $('bq-name'), email = $('bq-email');
+    const ok = [
+      setErr(name, name.value.trim() ? '' : 'Indiquez votre nom.'),
+      setErr(email, validEmail(email.value) ? '' : 'Saisissez une adresse e-mail valide.')
+    ];
+    if (!s.flowers.length) { toast('Choisissez au moins une fleur'); return; }
+    if (ok.includes(false)) return;
+    const price = s.size[1] + s.wrap[1], fl = s.flowers.map(f => f[0]).join(', ');
+    const when = $('bq-date').value ? new Date($('bq-date').value + 'T12:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) : 'date à convenir';
+    saveRequest('Bouquet sur mesure', `${fl} · ${s.size[0]} · ${s.wrap[0]} · environ ${euro(price)} · ${when}`, email.value);
+    envoyer('Bouquet sur mesure', [
+      'Bonjour,', '', 'Je souhaiterais ce bouquet composé sur le site :', '',
+      `Fleurs : ${fl}`, `Taille : ${s.size[0]} (${s.size[2]} tiges)`, `Emballage : ${s.wrap[0]}`, `Prix estimé : environ ${euro(price)}`, `Pour le : ${when}`,
+      $('bq-for').value.trim() ? `Occasion : ${$('bq-for').value.trim()}` : '', '',
+      `${name.value.trim()} · ${email.value.trim()}`
+    ]);
+    $('bq-body').hidden = true; $('bq-thanks').hidden = false;
+  });
+  // ---------- Carte cadeau personnalisée ----------
+  const VALUES = [['carte-cadeau', 'Un atelier floral', '1 atelier'], ['carte-30', '30 €', '30 €'], ['carte-50', '50 €', '50 €'], ['carte-80', '80 €', '80 €']];
+  const STYLES = [['velours', 'Velours', '#17302A'], ['sable', 'Sable', '#F2EDE5'], ['terracotta', 'Terracotta', '#A24F28']];
+  const radio = (name, value, label, checked, extra = '') => `<label><input type="radio" name="${name}" value="${value}"${checked ? ' checked' : ''}><span${extra}>${label}</span></label>`;
+  $('gc-value').innerHTML = VALUES.map(([id, label], i) => radio('gc-v', id, label, i === 0)).join('');
+  $('gc-style').innerHTML = STYLES.map(([k, label, c], i) => radio('gc-s', k, label, i === 0, ` style="--c:${c}"`)).join('');
+  fillLogos($('gc-card'));
+  const gift = () => {
+    const v = VALUES.find(x => x[0] === document.querySelector('input[name="gc-v"]:checked').value);
+    return { id: v[0], value: v[2], style: document.querySelector('input[name="gc-s"]:checked').value,
+      to: $('gc-for').value.trim(), from: $('gc-from').value.trim(), msg: $('gc-msg').value.trim() };
+  };
+  function drawGift() {
+    const g = gift();
+    $('gc-card').dataset.style = g.style;
+    $('gc-for-out').textContent = g.to ? `Pour ${g.to}` : 'Pour vous';
+    $('gc-msg-out').textContent = (g.msg || 'Un petit mot pour accompagner votre cadeau.') + (g.from ? ` · ${g.from}` : '');
+    $('gc-value-out').textContent = g.value;
+    $('gc-count').textContent = `${$('gc-msg').value.length} / 160`;
+  }
+  $('gc-form').addEventListener('input', drawGift);
+  $('gc-form').addEventListener('change', drawGift);
+  drawGift();
+  $('gc-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const g = gift();
+    const style = STYLES.find(s => s[0] === g.style)[1];
+    db.set('hb_gift_note', `Carte cadeau (${g.value}, style ${style}) pour ${g.to || '…'} de la part de ${g.from || '…'} : « ${g.msg || 'sans message'} »`);
+    cart.add(g.id);
+  });
+
+  // ---------- Abonnement particuliers ----------
+  const ABOS = { saison: ['Saison', '35 € par bouquet, 4 par an'], mois: ['Chaque mois', '29 € par mois'], offrir: ['Trois mois à offrir', '85 € en une fois'] };
+  let abo = null;
+  const starts = Array.from({ length: 3 }, (_, i) => new Date(new Date().getFullYear(), new Date().getMonth() + i + 1, 1).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' }));
+  $('abo-start').innerHTML = starts.map(m => `<option>Début ${m}</option>`).join('');
+  prefill({ name: 'abo-name', email: 'abo-email' });
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-abo]');
+    if (!b) return;
+    abo = b.dataset.abo;
+    $('abo-chosen').textContent = `${ABOS[abo][0]} · ${ABOS[abo][1]}`;
+    $('abo-form').hidden = false; $('abo-body').hidden = false; $('abo-thanks').hidden = true;
+    $('abo-form').classList.add('in');
+    $('abo-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => $('abo-start').focus({ preventScroll: true }), 500);
+  });
+  $('abo-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('abo-name'), email = $('abo-email');
+    const ok = [
+      setErr(name, name.value.trim() ? '' : 'Indiquez votre nom.'),
+      setErr(email, validEmail(email.value) ? '' : 'Saisissez une adresse e-mail valide.')
+    ];
+    if (ok.includes(false)) return;
+    const mode = document.querySelector('input[name="abo-mode"]:checked').value, start = $('abo-start').value;
+    saveRequest('Abonnement bouquet', `${ABOS[abo][0]} · ${start} · ${mode}`, email.value);
+    envoyer(`Abonnement : ${ABOS[abo][0]}`, [
+      'Bonjour,', '', `Je souhaite m'abonner au bouquet de saison, formule « ${ABOS[abo][0]} » (${ABOS[abo][1]}).`,
+      `${start} · ${mode}`, $('abo-note').value.trim() ? `Précisions : ${$('abo-note').value.trim()}` : '', '',
+      `${name.value.trim()} · ${email.value.trim()}`
+    ]);
+    $('abo-body').hidden = true; $('abo-thanks').hidden = false;
+  });
+
+  $('bq-again').addEventListener('click', () => { $('bq-body').hidden = false; $('bq-thanks').hidden = true; });
+</script>
+</body>
+</html>

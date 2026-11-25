@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /calendrier-contenu.html
+
+# Remplacer VOTRE-DOMAINE par l'adresse du site une fois en ligne
+Sitemap: https://VOTRE-DOMAINE/sitemap.xml
